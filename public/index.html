@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0f0d">
+  <title>Tipster AI — Futebol e análise</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-icon">T</span><span>TIPSTER<span class="brand-ai"> AI</span><small>FOOTBALL INTELLIGENCE</small></span></a>
+      <div class="side-label">MENU PRINCIPAL</div>
+      <a class="nav active" href="#jogos">◫ <span>Jogos</span></a>
+      <a class="nav" href="#tabela">▤ <span>Classificação</span></a>
+      <a class="nav" href="#analise">✳ <span>Análise IA</span></a>
+      <a class="nav" href="#multipla">▤ <span>Múltipla do dia</span></a>
+      <a class="nav" href="#historico">📊 <span>Green Tracker</span></a>
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div><span id="connection-label">A verificar ligações…</span>
+        <p>Dados de futebol e análises são informativos. Não existem apostas garantidas.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">CENTRO DE ANÁLISE</div><h1>Futebol <span class="accent">em foco</span></h1></div>
+        <div class="top-actions"><span class="live-pill"><i></i> DADOS EM DIRETO*</span><button id="refresh" class="button secondary">↻ Atualizar</button></div>
+      </header>
+
+      <section class="welcome panel">
+        <div class="welcome-copy"><div class="eyebrow">TIPSTER AI / DASHBOARD</div><h2>Decisões com mais<br><span class="accent">contexto. Menos ruído.</span></h2><p>Calendário das principais ligas e análise assistida por inteligência artificial.</p>
+          <div class="welcome-actions"><button id="analyse-top" class="button primary">✳ Analisar jogos do dia</button><a class="button secondary" href="#jogos">Ver calendário ↓</a></div>
+        </div>
+        <div class="orb-wrap"><div class="orb"><span>AI</span></div><div class="orb-caption">FOOTBALL ANALYTICS<br><b>INSIGHT ENGINE</b></div></div>
+      </section>
+
+      <section class="stat-grid">
+        <div class="stat panel"><span class="stat-icon">◷</span><span class="stat-label">JOGOS NA DATA</span><strong id="stat-games">—</strong><small>Nas ligas selecionadas</small></div>
+        <div class="stat panel"><span class="stat-icon">▦</span><span class="stat-label">COMPETIÇÕES</span><strong id="stat-leagues">8</strong><small>Competições selecionadas</small></div>
+        <div class="stat panel"><span class="stat-icon">✳</span><span class="stat-label">ESTADO DA IA</span><strong id="stat-ai" class="stat-word">Por configurar</strong><small>Análise após configuração</small></div>
+      </section>
+
+      <section id="jogos" class="content-section">
+        <div class="section-head">
+          <div><div class="eyebrow">CALENDÁRIO</div><h2>Jogos <span class="muted">por data</span></h2></div>
+          <div class="date-tools"><button id="prev-day" class="icon-button" aria-label="Dia anterior">‹</button><input id="match-date" type="date"><button id="next-day" class="icon-button" aria-label="Dia seguinte">›</button></div>
+        </div>
+        
+        <!-- Filtros por Liga -->
+        <div id="league-filters" class="filters"></div>
+
+        <!-- FILTROS: Estado dos Jogos -->
+        <div id="status-filters" class="filters status-filters">
+          <button class="filter status-filter active" data-status="ALL">Todos os jogos</button>
+          <button class="filter status-filter" data-status="LIVE">🔴 Ao Vivo</button>
+          <button class="filter status-filter" data-status="FINISHED">✓ Terminados</button>
+          <button class="filter status-filter" data-status="SCHEDULED">📅 Agendados</button>
+        </div>
+
+        <div id="matches" class="match-list"><div class="empty-state">A carregar calendário…</div></div>
+        <div id="match-message" class="notice hidden"></div>
+      </section>
+
+      <!-- TABELA CLASSIFICATIVA EM TEMPO REAL -->
+      <section id="tabela" class="content-section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">COMPETIÇÃO</div>
+            <h2>Tabela <span class="muted">Classificativa</span></h2>
+          </div>
+          <span class="live-pill" id="table-live-status"><i></i> TEMPO REAL</span>
+        </div>
+
+        <div class="panel table-panel">
+          <div class="table-tools">
+            <select id="table-league-select" class="button secondary">
+              <option value="PL">Premier League</option>
+              <option value="PD">La Liga</option>
+              <option value="PPL">Liga Portugal</option>
+              <option value="SA">Serie A</option>
+              <option value="BL1">Bundesliga</option>
+            </select>
+            <small id="table-last-update" class="muted">Última atualização: --:--:--</small>
+          </div>
+
+          <div class="table-responsive">
+            <table class="standings-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th class="text-left">Equipa</th>
+                  <th>J</th>
+                  <th>V</th>
+                  <th>E</th>
+                  <th>D</th>
+                  <th>GM</th>
+                  <th>GS</th>
+                  <th>DG</th>
+                  <th>Pts</th>
+                </tr>
+              </thead>
+              <tbody id="standings-body">
+                <tr>
+                  <td colspan="10" class="empty-state">A carregar classificação em tempo real…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="analise" class="content-section">
+        <div class="section-head"><div><div class="eyebrow">INTELIGÊNCIA ARTIFICIAL</div><h2>Análise <span class="muted">dos jogos</span></h2></div><span class="tag">BETA</span></div>
+        <div class="ai-panel panel">
+          <div class="ai-head"><div class="ai-symbol">✳</div><div><h3>Tipster AI Analyst</h3><p>Analisa os jogos da data selecionada e explica as limitações.</p></div></div>
+          <div class="ai-disclaimer">A primeira versão recebe calendário e nomes das equipas. Sem estatísticas recentes, alinhamentos e odds, a IA não pode fundamentar previsões fortes.</div>
+          <button id="analyse" class="button primary">✳ Gerar análise</button>
+          <div id="analysis-result" class="analysis-result"><p class="muted">A análise aparecerá aqui quando selecionares “Gerar análise”.</p></div>
+        </div>
+      </section>
+
+      <section id="multipla" class="content-section">
+        <div class="section-head"><div><div class="eyebrow">SELEÇÃO DIÁRIA</div><h2>Múltipla <span class="muted">do dia</span></h2></div><span class="tag">SUGESTÃO IA</span></div>
+        <div class="multi-panel panel"><div class="multi-mark">↗</div><div class="multi-body"><h3>Combinação fundamentada, não garantida</h3><p>A múltipla será apresentada apenas depois da análise. A IA pode recomendar não apostar se não existirem dados suficientes.</p><div id="multi-result" class="multi-result muted">Ainda sem sugestões para esta data.</div></div></div>
+      </section>
+
+      <!-- HISTÓRICO & GREEN TRACKER -->
+      <section id="historico" class="content-section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">TRANSPARÊNCIA E DESEMPENHO</div>
+            <h2>Green Tracker <span class="muted">📊</span></h2>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="panel stat">
+            <span class="stat-icon">🎯</span>
+            <span class="stat-label">TAXA DE ACERTO</span>
+            <strong id="stat-winrate">0%</strong>
+            <small class="muted">Balanço de apostas</small>
+          </div>
+          <div class="panel stat">
+            <span class="stat-icon">✅</span>
+            <span class="stat-label">GREENS</span>
+            <strong id="stat-greens" class="accent">0</strong>
+            <small class="muted">Múltiplas ganhas</small>
+          </div>
+          <div class="panel stat">
+            <span class="stat-icon">❌</span>
+            <span class="stat-label">REDS</span>
+            <strong id="stat-reds" style="color: var(--red);">0</strong>
+            <small class="muted">Múltiplas perdidas</small>
+          </div>
+        </div>
+
+        <div class="panel ai-panel">
+          <h3>Histórico de Múltiplas e Sugestões</h3>
+          <p class="muted">Acompanha o desempenho passado das análises geradas pela IA.</p>
+          <div id="history-list" class="match-list" style="margin-top: 15px;">
+            <div class="empty-state">A carregar histórico...</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>Tipster AI · Protótipo inicial · *A atualização depende da API e do plano contratado.<br>Conteúdo informativo, não aconselhamento financeiro. Apostar envolve risco de perda.</footer>
+    </main>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
