@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0a0f0d">
   <title>Tipster AI — Futebol e análise</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app-shell">
@@ -48,10 +48,8 @@
           <div class="date-tools"><button id="prev-day" class="icon-button" aria-label="Dia anterior">‹</button><input id="match-date" type="date"><button id="next-day" class="icon-button" aria-label="Dia seguinte">›</button></div>
         </div>
         
-        <!-- Filtros por Liga -->
         <div id="league-filters" class="filters"></div>
 
-        <!-- FILTROS: Estado dos Jogos -->
         <div id="status-filters" class="filters status-filters">
           <button class="filter status-filter active" data-status="ALL">Todos os jogos</button>
           <button class="filter status-filter" data-status="LIVE">🔴 Ao Vivo</button>
@@ -63,7 +61,6 @@
         <div id="match-message" class="notice hidden"></div>
       </section>
 
-      <!-- TABELA CLASSIFICATIVA EM TEMPO REAL -->
       <section id="tabela" class="content-section">
         <div class="section-head">
           <div>
@@ -126,7 +123,6 @@
         <div class="multi-panel panel"><div class="multi-mark">↗</div><div class="multi-body"><h3>Combinação fundamentada, não garantida</h3><p>A múltipla será apresentada apenas depois da análise. A IA pode recomendar não apostar se não existirem dados suficientes.</p><div id="multi-result" class="multi-result muted">Ainda sem sugestões para esta data.</div></div></div>
       </section>
 
-      <!-- HISTÓRICO & GREEN TRACKER -->
       <section id="historico" class="content-section">
         <div class="section-head">
           <div>
@@ -168,6 +164,6 @@
       <footer>Tipster AI · Protótipo inicial · *A atualização depende da API e do plano contratado.<br>Conteúdo informativo, não aconselhamento financeiro. Apostar envolve risco de perda.</footer>
     </main>
   </div>
-  <script src="/app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
