@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tip_1793221673352",
+    "date": "2026-10-29",
+    "createdAt": "2026-10-28T21:07:53.352Z",
+    "resumo": "Jornada marcada por confrontos cruciais na Serie A envolvendo equipas em momentos de forma contrastantes. O Frosinone procura consolidar a sua posição na primeira metade da tabela, enquanto a Fiorentina tenta reagir a um início de época muito difícil perante a Atalanta.",
+    "tips": [
+      {
+        "match": "Frosinone Calcio vs US Lecce",
+        "selection": "Empate Anula Aposta (DNB Casa)",
+        "confidence": "Alta",
+        "reason": "O Frosinone ocupa o 6.º lugar com 14 pontos e saldo positivo (+4), enfrentando um Lecce no 14.º posto com 9 pontos e saldo negativo (-5)."
+      },
+      {
+        "match": "ACF Fiorentina vs Atalanta BC",
+        "selection": "Dupla Hipótese (X2)",
+        "confidence": "Moderada",
+        "reason": "A Fiorentina está no 19.º lugar com apenas 4 pontos somados e uma diferença de golos de -10, cenário favorável para a Atalanta pontuar fora de portas."
+      }
+    ],
+    "multipla": {
+      "selections": [
+        {
+          "match": "Frosinone Calcio vs US Lecce",
+          "selection": "Empate Anula Aposta (DNB Casa)"
+        },
+        {
+          "match": "ACF Fiorentina vs Atalanta BC",
+          "selection": "Dupla Hipótese (X2)"
+        }
+      ],
+      "riskLevel": "Moderado",
+      "recommendedStakePercent": 1.5,
+      "note": "A combinação de mercados de proteção estatística contra equipas em crise justifica uma exposição prudente de 1.5% do capital."
+    },
+    "status": "PENDING"
+  }
+]

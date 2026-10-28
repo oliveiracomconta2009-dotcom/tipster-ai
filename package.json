@@ -1,0 +1,16 @@
+{
+  "name": "tipster-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tipster AI — calendário de futebol e análises assistidas por IA",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.31.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
